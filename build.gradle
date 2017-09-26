@@ -1,0 +1,25 @@
+group 'codes.recursive'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'idea'
+apply plugin: 'groovy'
+apply plugin: 'java'
+
+configurations {
+    localGroovyConf
+}
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    localGroovyConf localGroovy()
+    compile 'org.codehaus.groovy:groovy-all:2.5.0-beta-1'
+    compile 'com.sparkjava:spark-core:2.6.0'
+    compile 'org.slf4j:slf4j-simple:1.7.21'
+}
+
+task runServer(dependsOn: 'classes', type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'Bootstrap'
+}

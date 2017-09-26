@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Query Map Example</title>
+	<link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="/assets/main.css" rel="stylesheet"/>
+</head>
+<body>
+
+	<form action="/upload" method="POST" enctype="multipart/form-data">
+
+		<div class="form-group">
+			<label for="uploadFile">Your Life Story</label>
+			<input type="file" class="form-control" name="uploadFile" id="uploadFile" aria-describedby="uploadFile" placeholder="Choose A File" />
+			<small id="uploadFileHelp" class="form-text text-muted">Must be 10,000 words or more.</small>
+		</div>
+
+		<button type="submit" class="btn btn-primary">Submit</button>
+
+	</form>
+
+</body>
+</html>
