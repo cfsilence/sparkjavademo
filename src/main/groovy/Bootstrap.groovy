@@ -38,7 +38,7 @@ class Bootstrap {
         }
 
         post "/upload", { req, res ->
-            def uploadDir = new File("c:/temp")
+            def uploadDir = new File(System.getProperty("java.io.tmpdir"))
             Path tempFile = Files.createTempFile(uploadDir.toPath(), "", "")
             req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"));
             def upload = req.raw().getPart("uploadFile")
