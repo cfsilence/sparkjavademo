@@ -1,0 +1,35 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Thymeleaf Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Thymeleaf Demo</title>
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/assets/main.css" rel="stylesheet"/>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="starter-template">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-inverse">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user, i : ${users}">
+                    <td th:text="${user.id}"></td>
+                    <td><span th:text="${user.firstName}"></span> <span th:text="${user.lastName}"></span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

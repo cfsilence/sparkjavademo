@@ -17,6 +17,11 @@ dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.5.0-beta-1'
     compile 'com.sparkjava:spark-core:2.6.0'
     compile 'org.slf4j:slf4j-simple:1.7.21'
+
+    compile group: 'org.mongodb.morphia', name: 'morphia', version: '1.3.1'
+
+    compile group: 'com.sparkjava', name: 'spark-template-thymeleaf', version: '2.5.5'
+    compile group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '2.2.1'
 }
 
 task runServer(dependsOn: 'classes', type: JavaExec) {

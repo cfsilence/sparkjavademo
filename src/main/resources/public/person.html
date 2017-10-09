@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Query Map Example</title>
+	<link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="/assets/main.css" rel="stylesheet"/>
+</head>
+<body>
+
+	<form action="/mongo/create" method="POST" class="col-sm-6">
+
+		<div class="form-group">
+			<label for="firstName">First Name</label>
+			<input type="text" class="form-control" name="firstName" id="firstName" aria-describedby="firstName" placeholder="Enter First Name">
+			<small id="firstNameHelp" class="form-text text-muted">Hint:  this is what your momma calls you</small>
+		</div>
+
+		<div class="form-group">
+			<label for="lastName">Last Name</label>
+			<input type="text" class="form-control" name="lastName" id="lastName" aria-describedby="lastName" placeholder="Enter Last Name">
+			<small id="lastNameHelp" class="form-text text-muted">The one that comes last on your drivers license</small>
+		</div>
+
+		<button type="submit" class="btn btn-primary">Submit</button>
+
+	</form>
+
+</body>
+</html>

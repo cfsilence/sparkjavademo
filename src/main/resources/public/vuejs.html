@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Vue JS Example</title>
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/assets/main.css" rel="stylesheet"/>
+    <script src="/assets/vuejs/vue.js"></script>
+
+    <script>
+        window.addEventListener('load', function () {
+
+            var demo = new Vue({
+
+                el: '#demo',
+
+                data: {
+                    users: [],
+                    title: 'VueJS Example!',
+                },
+
+                created: function () {
+                    this.fetchData()
+                },
+
+                watch: {},
+
+                filters: {},
+
+                methods: {
+                    fetchData: function () {
+                        var self = this
+                        fetch('/mongo/list').then(
+                            function (response) {
+                                response.json().then(function (data) {
+                                    self.users = data.people
+                                })
+                            }
+                        )
+                    }
+                }
+            });
+
+        })
+    </script>
+</head>
+<body>
+    <div id="demo">
+        <h1 v-text="title"></h1>
+        <table class="table table-bordered">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody v-for="user in users">
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{user.firstName}} {{user.lastName}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
