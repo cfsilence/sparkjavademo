@@ -25,6 +25,22 @@ class Bootstrap {
         staticFiles.expireTime(10)
         port(9000)
 
+        before "/*", { req, res ->
+            def authenticated = false
+            if( req.cookie('isSuperCool') == true ) {
+                authenticated = true
+            }
+            if ( !authenticated ) {
+                println('You are not welcome here!')
+                // res.redirect('/login')
+                // halt(401, "Unauthorized")
+            }
+        }
+
+        after "/*", { req, res ->
+            println('after filter')
+        }
+
         get "/hello", { req, res -> "Hello World" }
         get "/goodbye", { req, res -> "Goodbye World" }
 
