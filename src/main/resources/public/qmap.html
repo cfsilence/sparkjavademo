@@ -9,22 +9,34 @@
 </head>
 <body>
 
-	<form action="/qmap" method="POST" class="col-sm-6">
-
-		<div class="form-group">
-			<label for="name">Name</label>
-			<input type="text" class="form-control" name="user[name]" id="name" aria-describedby="user[name]" placeholder="Enter Name">
-			<small id="emailHelp" class="form-text text-muted"></small>
-		</div>
-
-		<div class="form-group">
-			<label for="age">Age</label>
-			<input type="number" class="form-control" name="user[age]" id="age" placeholder="How old are you?">
-		</div>
-
-		<button type="submit" class="btn btn-primary">Submit</button>
-
-	</form>
+<div class="row">
+	<div class="col-sm-6">
+		<form action="/qmap" method="POST" class="">
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input type="text" class="form-control" name="user[name]" id="name" aria-describedby="user[name]" placeholder="Enter Name">
+				<small id="emailHelp" class="form-text text-muted"></small>
+			</div>
+			<div class="form-group">
+				<label for="age">Age</label>
+				<input type="number" class="form-control" name="user[age]" id="age" placeholder="How old are you?">
+			</div>
+			<div class="form-group pl-3">
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" name="favoriteConference" id="favoriteConference1" value="devNexus">
+					<label class="form-check-label pl-1" for="favoriteConference1">DevNexus</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" name="favoriteConference" id="favoriteConference2" value="connectTech">
+					<label class="form-check-label pl-1" for="favoriteConference2">Connect.Tech</label>
+				</div>
+			</div>
+			<div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+	</div>
+</div>
 
 </body>
 </html>

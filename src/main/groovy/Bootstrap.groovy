@@ -41,7 +41,8 @@ class Bootstrap {
             println('after filter')
         }
 
-        get "/hello", { req, res -> "Hello World" }
+        get "/hello", "application/json", { req, res -> "Hi!" }
+
         get "/goodbye", { req, res -> "Goodbye World" }
 
         get "/json", { req, res ->
@@ -55,6 +56,7 @@ class Bootstrap {
             def b = req.queryMap().get("user").get("name").value()
             def c = req.queryMap("user").get("age").integerValue()
             def d = req.queryMap("user").toMap()
+            def e = req.queryMap().get("favoriteConference").values()
 
             JsonOutput.toJson(
                     [
@@ -62,6 +64,7 @@ class Bootstrap {
                             "req.queryMap().get('user').get('name').value()": b,
                             "req.queryMap('user').get('age').integerValue()": c,
                             "req.queryMap('user').toMap()": d,
+                            "req.queryMap().get('favoriteConference').values()": e,
                     ]
             )
         }
@@ -69,7 +72,7 @@ class Bootstrap {
         post "/upload", { req, res ->
             def uploadDir = new File(System.getProperty("java.io.tmpdir"))
             Path tempFile = Files.createTempFile(uploadDir.toPath(), "", "")
-            req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"));
+            req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"))
             def upload = req.raw().getPart("uploadFile")
             def info = [:]
 
